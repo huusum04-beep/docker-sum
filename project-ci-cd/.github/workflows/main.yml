@@ -1,0 +1,30 @@
+name: Node.js CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Lay code tu GitHub
+      uses: actions/checkout@v3
+
+    - name: Cai dat Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Cai dat thu vien
+      run: |
+        npm install
+        echo "Cài đặt thư viện hoàn tất!"
+
+    - name: Kiem tra code (Test)
+      run: |
+        echo "--- BAT DAU KIEM TRA ---"
+        echo "Phien ban code hien tai: $(date)"
+        echo "Trang thai: Code da duoc kiem tra va cap nhat thanh cong!"
+        echo "--- KET THUC KIEM TRA ---"

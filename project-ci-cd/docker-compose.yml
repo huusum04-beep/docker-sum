@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  app-nodejs:
+    build: .             # Dấu chấm nghĩa là "tìm Dockerfile ở ngay đây"
+    ports:
+      - "3000:3000"      # Nối cổng 3000 của máy bạn vào cổng 3000 của Docker
+    volumes:
+      - .:/app           # (Tùy chọn) Giúp bạn sửa code ở ngoài, trong Docker tự đổi theo
+
+
+
+
+docker-compose build
+docker-compose up -d
